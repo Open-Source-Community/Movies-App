@@ -5,8 +5,7 @@ const favMoviesRouter = require('./routes/favMoviesRoutes');
 
 const app = express();
 const port = 3000;
-const mongoURI = 'mongodb+srv://tassneem:tassmongodb@cluster0.heztj.mongodb.net/moviesapp?retryWrites=true&w=majority';
-//const mongoURI = 'mongodb://localhost:27017/moviesapp';
+const mongoURI = '';
 
 // body parser
 app.use(express.json());
