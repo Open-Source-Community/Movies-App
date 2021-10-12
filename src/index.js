@@ -33,31 +33,36 @@ async function main() {
     );
 
     // 404 handler
-    app.use((req, res, next) => {
-      res.status(404).json({
-        status: 404,
-        message: "Page not found!"
-      });
-    });
+    // app.use((req, res, next) => {
+    //   res.status().json({
+    //     status: 404,
+    //     message: "Page not found!"
+    //   });
+    // });
 
-    // error handler
-    app.use(((err, req, res, next) => {
-      if (err.status < 500) {
-        res.status(err.status).json({
-          status: err.status,
-          message: err.message
-        });
-      }
-      else {
-        res.status(500).json({
-          status: 500,
-          message: err.message
-        });
-      }
+    // // error handler
+    // app.use(((err, req, res, next) => {
+    //   if (err.status < 500) {
+    //     res.status(err.status).json({
+    //       status: err.status,
+    //       message: err.message
+    //     });
+    //   }
+    //   else {
+    //     res.status(500).json({
+    //       status: 500,
+    //       message: err.message
+    //     });
+    //   }
 
-    }));
+    // }));
 
 
+
+    app.get('/', (req,res)=>{
+
+      res.render('landing.ejs')
+    })
     app.listen(port, () => {
       console.log(`server is running on port ${port}`);
     });
