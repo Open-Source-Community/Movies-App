@@ -1,0 +1,17 @@
+<h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3">Welcome <%= user.name %></p>
+<h1> Group of the hottest movies </h1>
+
+<% for(var i=0; i<films.length; i++){%>
+
+    <a href="<%=films[i].slug%>"> <img src="<%= films[i].image_URL%>" height="200px" width="100px"> </a>
+
+
+    <h2><%=films[i].name %></h2>
+    <h3>
+        <%=films[i].description %>
+    </h3>
+    <%}%>
+<h2></h2>
+
+<a href="/users/logout" class="btn btn-secondary">Logout</a>
