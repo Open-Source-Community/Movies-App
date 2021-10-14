@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
+const path = require('path')
+
 
 const app = express();
 
@@ -30,6 +32,9 @@ app.set('view engine', 'ejs');
 
 // Express body parser
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/static', express.static(path.join(__dirname, 'public')))
+
 
 // Express session
 app.use(

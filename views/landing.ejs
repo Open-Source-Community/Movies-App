@@ -1,33 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
- 
+<html><head>
+    <title>movies</title>
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/static/style/style.css">
+    </head>
+    <body>
+        <div>
+        <div class="main-menu">
+            <div class="menu-head">
+                </div>
+                <div class="menu-body">
+                <ul>
+                    <li><a href="/categories/Drama">Drama</a></li>
+                    <li> <a href="/categories/Comedy">Comedy</a></li>
+                    <li> <a href="/categories/Cartoon">Cartoon</a></li>
+                    <li> <a href="/categories/Action">Action</a></li>
+                    <li> <a href="/categories/Fantasy">Fantasy</a></li>
+                    <li> <a href="/categories/Horror">Horror</a></li>
+                    
+                </ul>
+                </div>
+                <div class="menu-footer">
+                    <input class="search-input">
+                </div>
+                </div>
     
- <%# include("partials/nav.ejs") %>
-
-
-        <% for(var i=0; i<films.length ; i++) { %>
-   <a href="/<%=films[i].slug%>" style="text-decoration: none;"  >
-
-        <div class="filmCard">
-            <img src="<%=films[i].image_URL%>"  width="40%">
-
-           <a href="<%=films[i].trailer%>"> Watch the Trailer </a>
-        </div>
-    </a>
-            <% }%>
-
-
-<hr>
+            <div class="main-body">
+              
             
-
-          
-    <%#include("partials/footer.ejs") %>
-</body>
-</html>
+            <% for(var i=0; i<films.length ; i++) {%>
+                <div class="card">
+                    <a href="/<%=films[i].slug%>" style="text-decoration: none;"  ><img class="card-img" src="<%=films[i].image_URL%>"> </a> 
+                    <div class="card-body">
+                        <h3> <%=films[i].name %></h3>
+                        <p>
+                            <%= films[i].description %> 
+                         </p>
+                         <a href="<%=films[i].trailer%>" class="w-btn">
+                            See Trailer</a>
+                    </div>
+                </div>
+                <% } %>
+                
+            
+                
+    
+            
+               
+              
+            
+        </div> 
+    </div>
+    
+    </body></html>
