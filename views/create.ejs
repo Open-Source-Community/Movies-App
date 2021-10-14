@@ -1,31 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<title>Create</title>
+
+ <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style/form.css"> 
 </head>
-<body>
-    <h1>Hello</h1>
+<body >
+    <div>
+        <div class="main-menu">
+            <div class="menu-head">
+            </div>
+            <div class="menu-body">
 
-    <form method="POST">
-
-    <label for="name">name</label>
-    <input type="text" name="name" id="name">
-
-    <label for="description">description</label>
-    <input type="text" id="description"  name="description" >
-
-    <label for="image">image</label>
-    <input type="text" id="image"  name="image" >
-
-    <label for="category">category</label>
-    <input type="text" id="category"  name="category">
+               
+                </div>
+                <div class="menu-footer">
+                    <input class="search-input">
+                </div>
+                </div>
     
-    <input type="submit">
+            <div class="main-body">
+                <div class="body-head">
+                    <h3> action</h3>
+                </div>
+                <div class="card">
+                    <div class="card-head">
+                        <h1> Create</h1>
+                    </div>
+                    <form>
+                        <label> Enter film Name</label>
+                        <input type="text" name="name" id="name">
+                        <label> Enter film img url</label>
+                        <input type="url" id="img_URL">
+                        <label> Enter film trailer url</label>
+                        <input type="url" name="trailer" id="trailer">
+                        <label> Category </label>
+                        <input type="text" name="category" id="category">
 
-</form>
-    
+                        <label> Enter film description</label>
+                        <textarea type="textarea" name="description" id="description" style="width: 100%;"></textarea>
+                         <button type="reset" class="s-btn">cancel</button>
+                        <button type="submit"class="w-btn"></i> submit</button>
+                       
+                     </form>
+                </div>
+            </div>
+            <div >
+
+            </div>
+        </div>
+    </div>
 </body>
-</html>
+</html> 

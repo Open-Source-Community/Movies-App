@@ -72,9 +72,9 @@ app.get('/create', (req,res)=>{
 
 })
 app.post('/create', (req,res)=>{
-const {name,description,image, category}=req.body;
+const {name,image,trailer,category, description}=req.body;
 
-console.log(name,description,image, category)
+console.log(name,description,image, category,trailer)
 
 
 var movie=new Movie({
@@ -82,6 +82,7 @@ var movie=new Movie({
   description:description,
   image_URL:image,
   category:category,
+  trailer:trailer,
   slug:slugify(name)
 })
 movie.save()
@@ -91,34 +92,24 @@ res.send("Added the movie ")
 
 })
 
-app.get('/:movieSlug', async(req,res)=>{
-  var slug=req.params.movieSlug
+// app.get('/:movieSlug', async(req,res)=>{
+//   var slug=req.params.movieSlug
 
-  var film=await Movie.findOne({slug:slug})
-console.log(film)
+//   var film=await Movie.findOne({slug:slug})
+// console.log(film)
 
 
-// random    
+// // random    
 
-var hottestMovies=await Movie.find({})
+// var hottestMovies=await Movie.find({})
 
-//removing movie from movies 
+// //removing movie from movies 
 
-  res.render('filmPage.ejs', {film:film, hottestFilms:hottestMovies})
+//   res.render('filmPage.ejs', {film:film, hottestFilms:hottestMovies})
 
-})
+// })
 
-app.get('/chunk', (req,res)=>{
-console.log("here")
-  var chunks=[
-    {name:"problem solve ", time:"3 hours", done:false, date:Date.now(), image:"https://2rdnmg1qbg403gumla1v9i2h-wpengine.netdna-ssl.com/wp-content/uploads/sites/3/2014/04/brainFacts-579411100-770x533-1-650x428.jpg"},
-    {name:"problem solve ", time:"3 hours", done:false, date:Date.now()}
-    ,{name:"problem solve ", time:"3 hours", done:false, date:Date.now()}
-]
-var dailyGoal="Improve the problem Solving skills in binary search "
 
-  res.render("chunk.ejs", {chunks:chunks, dailyGoal:dailyGoal} )
-})
 
 
 app.get('/categories/:Type', async(req,res)=>{

@@ -1,19 +1,63 @@
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= user.name %></p>
-<h1> Group of the hottest movies </h1>
 
-<% for(var i=0; i<films.length; i++){%>
+<html><head>
+    <title>Movies</title>
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/static/style/style.css">
+    </head>
+    <body>
+        <div>
+        <div class="main-menu">
+            <div class="menu-head">
+                </div>
+                <div class="menu-body">
+                <ul>
+                    <li><a href="/categories/Drama">Drama</a></li>
+                    <li> <a href="/categories/Comedy">Comedy</a></li>
+                    <li> <a href="/categories/Cartoon">Cartoon</a></li>
+                    <li> <a href="/categories/Action">Action</a></li>
+                    <li> <a href="/categories/Fantasy">Fantasy</a></li>
+                    <li> <a href="/categories/Horror">Horror</a></li>
+                    
+                </ul>
+                </div>
+                <div class="menu-footer">
+                    <input class="search-input">
+                </div>
+                </div>
+    
+            <div class="main-body">
+              
+            
+            <% for(var i=0; i<films.length ; i++) {%>
+                <div class="card">
+          <img class="card-img" src="<%=films[i].image_URL%>">
+                    <div class="card-body">
+                        <h3> <%=films[i].name %></h3>
+                        <p>
+                            <%= films[i].description %> 
+                         </p>
+                         <button class="w-btn">
+                         <a href="<%=films[i].trailer%>" >
 
-    <a href="/<%=films[i].slug%>"> <img src="<%=films[i].image_URL%>" height="400px" width="40%"> </a>
+                             Trailer</a>
+                            </button>
+                    </div>
+                </div>
+                <% } %>
+                
+            
+                
+    
+            
+               
+              
+            
+        </div> 
+    </div>
+    
 
-        <h1>Category:<%=films[i].category%></h1>
-    <h2><%=films[i].name %></h2>
-    <h3>
-        About:
-        <%=films[i].description %>
-    </h3>
-    <a href="<%=films[i].trailer%>"> Trailer </a>
-    <%}%>
-<h2></h2>
+    </body>
+    <a href="/users/logout" class="btn btn-secondary">Logout</a>
+    </html>
 
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+

@@ -51,7 +51,7 @@ body{
 .card{
     width: 45%;
     float: left;
-    margin: 20px;
+    margin-left: 150px;
     /* background: #dbdada; */
 }
 .card-head{

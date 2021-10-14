@@ -16,6 +16,7 @@
                     <li> <a href="/categories/Action">Action</a></li>
                     <li> <a href="/categories/Fantasy">Fantasy</a></li>
                     <li> <a href="/categories/Horror">Horror</a></li>
+                    <li> <a href="/categories/Crime">Crime</a></li>
                     
                 </ul>
                 </div>
@@ -29,14 +30,17 @@
             
             <% for(var i=0; i<films.length ; i++) {%>
                 <div class="card">
-                    <a href="/<%=films[i].slug%>" style="text-decoration: none;"  ><img class="card-img" src="<%=films[i].image_URL%>"> </a> 
+                <img class="card-img" src="<%=films[i].image_URL%>">
                     <div class="card-body">
                         <h3> <%=films[i].name %></h3>
                         <p>
                             <%= films[i].description %> 
                          </p>
-                         <a href="<%=films[i].trailer%>" class="w-btn">
-                            See Trailer</a>
+                         <button class="w-btn">
+                            <a href="<%=films[i].trailer%>" >
+   
+                                Trailer</a>
+                               </button>
                     </div>
                 </div>
                 <% } %>
