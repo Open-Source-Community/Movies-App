@@ -5,18 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Film page</title>
+    <style>
+      body{
+        color:white;
+        background-color: black;
+
+      }
+    </style>
 </head>
 <body>
     
-<img src="<%=film.image_URL%>">
+<img src="<%=film.image_URL%>" style="float:right" width="70%" height="600px">
 <h1>
     <%=film.name%>
 </h1>
+<br>
+<hr>
+
 <h2>
     <%=film.description%>
 </h2>
+<br>
+<hr>
 
-<a href="<%=film.Trailer %>"> <h1>Trailer</h1></a>
+
+<a href="<%=film.trailer%>"> 
+  <h1>Trailer</h1>
+</a>
 
 
    <% for(var i=0; i<(hottestFilms.length)/2; i++ ){ %>

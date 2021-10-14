@@ -4,13 +4,15 @@
 
 <% for(var i=0; i<films.length; i++){%>
 
-    <a href="<%=films[i].slug%>"> <img src="<%= films[i].image_URL%>" height="200px" width="100px"> </a>
+    <a href="/<%=films[i].slug%>"> <img src="<%=films[i].image_URL%>" height="400px" width="40%"> </a>
 
-
+        <h1>Category:<%=films[i].category%></h1>
     <h2><%=films[i].name %></h2>
     <h3>
+        About:
         <%=films[i].description %>
     </h3>
+    <a href="<%=films[i].trailer%>"> Trailer </a>
     <%}%>
 <h2></h2>
 

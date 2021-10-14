@@ -9,27 +9,25 @@
 <body>
  
     
- <%-include("partials/nav.ejs") %>
+ <%# include("partials/nav.ejs") %>
 
-   <%  var filmLength=10 %>
 
- <% if(isCategory) %>
-var filmLength=film.length
-  <% %>
-        <% for(var i=0; i<filmLength; i++) { %>
-   <a href="<%=film[i].slug%>" style="text-decoration: none;"  >
+        <% for(var i=0; i<films.length ; i++) { %>
+   <a href="/<%=films[i].slug%>" style="text-decoration: none;"  >
+
         <div class="filmCard">
+            <img src="<%=films[i].image_URL%>"  width="40%">
 
-            <h1>film[i].name</h1>
-            <h1>film[i].description</h1>
-            <h1>film[i].img</h1>
-            <h1>film[i].trailer<h1>
+           <a href="<%=films[i].trailer%>"> Watch the Trailer </a>
         </div>
     </a>
             <% }%>
+
+
+<hr>
             
 
-            <% }%>
-    <%-include("partials/footer.ejs") %>
+          
+    <%#include("partials/footer.ejs") %>
 </body>
 </html>

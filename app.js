@@ -67,37 +67,41 @@ app.get('/create', (req,res)=>{
 
 })
 app.post('/create', (req,res)=>{
-const {name,description,image}=req.body;
-console.log(name,description,image)
+const {name,description,image, category}=req.body;
+
+console.log(name,description,image, category)
 
 
 var movie=new Movie({
   name:name,
   description:description,
   image_URL:image,
+  category:category,
   slug:slugify(name)
 })
 movie.save()
+
+res.send("Added the movie ")
   
 
 })
 
-// app.get('/:movieSlug', async(req,res)=>{
-//   var slug=req.params.movieSlug
+app.get('/:movieSlug', async(req,res)=>{
+  var slug=req.params.movieSlug
 
-//   var film=await Movie.findOne({slug:slug})
-// console.log(film)
+  var film=await Movie.findOne({slug:slug})
+console.log(film)
 
 
-// // random    
+// random    
 
-// var hottestMovies=await Movie.find({})
+var hottestMovies=await Movie.find({})
 
-// //removing movie from movies 
+//removing movie from movies 
 
-//   res.render('filmPage.ejs', {film:film, hottestFilms:hottestMovies})
+  res.render('filmPage.ejs', {film:film, hottestFilms:hottestMovies})
 
-// })
+})
 
 app.get('/chunk', (req,res)=>{
 console.log("here")
@@ -117,7 +121,11 @@ var categorySearch=req.params.Type
 
 var films=await Movie.find({category:categorySearch})
 
-  res.render('landing.ejs', {films:films,isCategory:true })
+console.log(films, categorySearch)
+  res.render('landing.ejs', {films:films})
+
+
+
 })
 
 const PORT = process.env.PORT || 5000;
