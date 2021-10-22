@@ -92,22 +92,22 @@ res.send("Added the movie ")
 
 })
 
-// app.get('/:movieSlug', async(req,res)=>{
-//   var slug=req.params.movieSlug
+app.get('/:movieSlug', async(req,res)=>{
+  var slug=req.params.movieSlug
 
-//   var film=await Movie.findOne({slug:slug})
-// console.log(film)
+  var film=await Movie.findOne({slug:slug})
+  var categorySearchKey=film.category
+  
+ 
+console.log(film, categorySearchKey)
 
+var recommendedMovies=await Movie.find({category:categorySearchKey})
+console.log(recommendedMovies)
+//removing movie from movies 
+         
+  res.render('filmPage.ejs', {film:film, films:recommendedMovies})
 
-// // random    
-
-// var hottestMovies=await Movie.find({})
-
-// //removing movie from movies 
-
-//   res.render('filmPage.ejs', {film:film, hottestFilms:hottestMovies})
-
-// })
+})
 
 
 
