@@ -71,6 +71,7 @@ app.get('/create', (req,res)=>{
   res.render("create.ejs")
 
 })
+
 app.post('/create', (req,res)=>{
 const {name,image,trailer,category, description}=req.body;
 
@@ -109,6 +110,18 @@ console.log(recommendedMovies)
 
 })
 
+
+
+
+app.post('/search', async(req,res)=>{ 
+
+  const name=req.body.name
+  const searchResult=await Movie.find( { name:{$regex:new RegExp(name)} } ).limit(15)
+  console.log(searchResult)
+
+  res.render("dashboard", {films:searchResult})
+  
+})
 
 
 
